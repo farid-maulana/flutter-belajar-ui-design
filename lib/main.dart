@@ -11,11 +11,29 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          title: Text('Contoh AppBar'),
+        ),
+        body: Center(
+          child: Text(
+            'Hello World!',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        bottomNavigationBar: BottomAppBar(
+          child: Container(
+            height: 50,
+          ),
+        ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
-          child: Icon(Icons.thumb_up),
-          backgroundColor: Colors.blue,
+          tooltip: 'Just Button',
+          child: Icon(Icons.home),
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
     );
   }
