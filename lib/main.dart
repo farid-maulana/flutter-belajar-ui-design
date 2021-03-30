@@ -10,20 +10,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Container(
-        margin: EdgeInsets.only(top: 30),
-        color: Colors.white,
-        child: Column(
-          children: <Widget>[            
-            AppBar(title: Text('Contoh Cupertino')),
-            CupertinoButton(
-              child: Text("Contoh Button"),
-              onPressed: () {},
-              color: Colors.green, // Mengatur warna button
-              padding: EdgeInsets.all(20), // Mengatur padding button
-            ),
-            CupertinoActivityIndicator(),
-          ],
+      home: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: Icon(Icons.thumb_up),
+          backgroundColor: Colors.blue,
         ),
       ),
     );
