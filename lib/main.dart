@@ -11,57 +11,39 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Contoh Date Picker',
-      home: MyHomePage(title: 'Contoh Date Picker'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  DateTime selectedDate = DateTime.now();
-  Future<Null> _selectDate(BuildContext context) async {
-    final DateTime picked = await showDatePicker(
-      context: context, 
-      initialDate: selectedDate, 
-      firstDate: DateTime(2000, 3), 
-      lastDate: DateTime(2100)
-    );
-    if (picked != null && picked != selectedDate)
-      setState(() {
-        selectedDate = picked;
-      }
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Text("${selectedDate.toLocal()}".split('  ')[0]),
-            SizedBox(height: 20,),
-            RaisedButton(
-              onPressed: () => {
-                _selectDate(context),
-                print(selectedDate.day + selectedDate.month + selectedDate.year)
-              },
-              child: Text('Pilih Tanggal'),
+      home: Scaffold(
+        appBar: AppBar(title: Text("Container")),
+        body: Container(
+          height: 300,
+          width: 300,
+          margin: const EdgeInsets.all(50),
+          padding: EdgeInsets.only(top: 10),
+          // color: Colors.greenAccent,
+          alignment: Alignment.topCenter,
+          child: RaisedButton(
+            padding: EdgeInsets.only(left: 20, right: 20),
+            textColor: Colors.white,
+            onPressed: () {},
+            color: Colors.red[900],
+            child: Text(
+              "Button",
+              style: TextStyle(
+                fontSize: 20,
+              ),
             ),
-          ],
+          ),
+          decoration: BoxDecoration(
+            image: const DecorationImage(
+              image: NetworkImage('https://pixnio.com/free-images/2017/03/07/2017-03-07-10-59-39-900x600.jpg'),
+              fit: BoxFit.fitWidth,
+            ),
+            border: Border.all( // Memberikan border
+              color: Colors.black,
+              width: 5,
+            ),
+            borderRadius: BorderRadius.circular(12) // Membuat lengkungan pada sudut
+          ),
+          transform: Matrix4.rotationZ(-0.1), // Memiringkan container
         ),
       ),
     );
