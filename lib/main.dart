@@ -11,16 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Text(
-        'This is Text Widget',
-        style: TextStyle(
-          color: Colors.blue,
-          fontSize: 28,
-          fontWeight: FontWeight.normal,
-          fontFamily: 'Times New Roman',
-          decoration: TextDecoration.none,
-          backgroundColor: Colors.red,
-        ),),
+      home: Image.asset('images/logo.jpg'),
     );
   }
 }
